@@ -89,6 +89,12 @@ config_setting(
     visibility = ["//visibility:private"],
 )
 
+config_setting(
+    name = "cpu_ios_sim_arm64",
+    values = {"cpu": "ios_sim_arm64"},
+    visibility = ["//visibility:private"],
+)
+
 # This is the value defined by --config=android_arm64
 config_setting(
     name = "cpu_arm64_v8a",
@@ -306,6 +312,7 @@ cc_library(
         ":cpu_arm64e": [":tflite_with_ruy_enabled"],
         ":cpu_ios_arm64": [":tflite_with_ruy_enabled"],
         ":cpu_ios_arm64e": [":tflite_with_ruy_enabled"],
+        ":cpu_ios_sim_arm64": [":tflite_with_ruy_enabled"],
         ":cpu_arm64_v8a": [":tflite_with_ruy_enabled"],
         "//tensorflow:android_arm": ["tflite_with_ruy_enabled"],
         "//conditions:default": [],
